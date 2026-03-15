@@ -56,14 +56,12 @@ esp_err_t index_handler(httpd_req_t *req){
     "body{margin:0;padding:0;background:#000;width:100vw;height:100vh;overflow:hidden;font-family:monospace;color:#0f0;text-shadow:1px 1px #000;}"
     ".container{position:relative;width:100vw;height:100vh;}"
     "img{width:100vw;height:100vh;object-fit:fill;z-index:1;}"
-    // Layer OSD
     ".osd-layer{position:absolute;top:0;left:0;width:100%;height:100%;z-index:10;pointer-events:none;}"
     ".corner{position:absolute;padding:15px;box-sizing:border-box;font-size:14px;}"
     ".top-left{top:0;left:0;}"
     ".top-right{top:0;right:0;text-align:right;}"
     ".bottom-left{bottom:0;left:0;}"
     ".bottom-right{bottom:0;right:0;text-align:right;}"
-    // Animasi & Dekorasi
     ".blink{animation:blink 1s infinite;}"
     "@keyframes blink{0%{opacity:0}50%{opacity:1}100%{opacity:0}}"
     ".dot{display:inline-block;width:8px;height:8px;background:red;border-radius:50%;margin-right:5px;box-shadow:0 0 5px red;}"
@@ -107,6 +105,12 @@ void setup() {
   config.frame_size = FRAMESIZE_QVGA; config.jpeg_quality = 15; config.fb_count = 1; config.grab_mode = CAMERA_GRAB_LATEST;
 
   esp_camera_init(&config);
+
+  // --- SETINGAN BALIK ATAS-BAWAH SAJA ---
+  sensor_t * s = esp_camera_sensor_get();
+  s->set_vflip(s, 1);   // Balik vertikal (Atas-Bawah)
+  s->set_hmirror(s, 0); // Kiri-Kanan normal
+
   WiFi.softAP(ssid, password);
   
   httpd_config_t server_config = HTTPD_DEFAULT_CONFIG();
