@@ -50,8 +50,3 @@ Untuk izin penggunaan, kolaborasi, atau pertanyaan lebih lanjut, silakan hubungi
 
 - LinkedIn: Alfadil ilhamora
 - Instagram: @alkyora_
-
----
-
-## ⚡ Closing
-> “Belajar itu bebas, tapi menghargai karya orang lain itu wajib.”
